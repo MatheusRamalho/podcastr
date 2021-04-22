@@ -1,0 +1,91 @@
+.player__wrapper {
+    width: 26.5rem;
+    height: 100vh;
+    padding: 3rem 4rem;
+    background-color: var(--purple__500);
+    color: var(--white);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    strong {
+        font-family: Lexend, sans-serif;
+        font-weight: 600;
+    }
+
+    .player__header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .player__empty {
+        width: 100%;
+        height: 20rem;
+        padding: 4rem;
+        border: 0.094rem dashed var(--purple__300);
+        border-radius: 1.5rem;
+        background: linear-gradient(143.8deg, rgba(145, 100, 250, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+        text-align: center;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    footer {
+        align-self: stretch;
+
+        &.player__footer__empty {
+            opacity: 0.5;
+        }
+    }
+}
+
+.player__progress {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    font-size: 0.875rem;
+
+    .player__time {
+        display: inline-block;
+        width: 4rem;
+        text-align: center;
+    }
+
+    .player__slider {
+        flex: 1;
+
+        .player__slider__empty {
+            width: 100%;
+            height: 0.25rem;
+            background-color: var(--purple__300);
+            border-radius: 0.125rem;
+        }
+    }
+}
+
+.player__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+
+    button {
+        background-color: transparent;
+        border: 0;
+        font-size: 0; // Serve para centralizar a imagem.
+        
+        &.player__button {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 1rem;
+            background-color: var(--purple__400);
+        }
+    }
+}
