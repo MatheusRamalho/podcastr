@@ -56,7 +56,7 @@ export default function Episode({ episode }: EpisodeProps) {
             <header>
                 <h1> {episode.title} </h1>
                 <span> {episode.members} </span>
-                <span> {episode.publishedAt} </span>
+                <span> {episode.published_at} </span>
                 <span> {episode.durationAsString} </span>
             </header>
 
@@ -74,8 +74,25 @@ export default function Episode({ episode }: EpisodeProps) {
 
 // Quando o arquivo possui colchetes é necessário o método getStaticPaths.
 export const getStaticPaths: GetStaticPaths = async () => {
+    const { data } = await api.get('episodes', {
+        params: {
+            _limit: 2,
+            _sort: 'published_at',
+            _order: 'desc'
+        }
+    })
+
+    const paths = data.map(episode => {
+        return {
+            params: {
+                slug: episode.id
+            }
+        }
+    })
+
     return {
-        paths: [],
+        // paths: [],
+        paths,
         fallback: 'blocking'
     }
 }
@@ -91,7 +108,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         title: data.title,
         thumbnail: data.thumbnail,
         members: data.members,
-        publishedAt: format(parseISO(data.published_at), 'd MMM yy', { locale: ptBR }), // parseISO transforma string em data do javascript.
+        published_at: format(parseISO(data.published_at), 'd MMM yy', { locale: ptBR }), // parseISO transforma string em data do javascript.
         description: data.description,
         duration: Number(data.file.duration),
         durationAsString: convertDurationToTimeString(Number(data.file.duration)),
