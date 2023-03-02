@@ -1,74 +1,64 @@
 import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { useRouter } from 'next/router';
+import next, { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { api } from '../../services/api';
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 
-import styles from './episode.module.scss';
+import { EpisodeProps } from '../../types/Episode';
+import { EpisodeWrapper } from './Episodes.styles';
+import { usePlayer } from '../../contexts/PlayerContext/PlayerContext.hook';
 
-// Tipagem para os dados.
-type Episode = {
-    id: string;
-    title: string;
-    members: string;
-    thumbnail: string;
-    description: string;
-    url: string;
-    duration: string;
-    durationAsString: string;
-    published_at: string;
-}
-
-type EpisodeProps = {
-    episode: Episode;
-}
-
-// Retorna para a "view" o episódio e sua formatação html.
 export default function Episode({ episode }: EpisodeProps) {
-    // const router = useRouter();
+    const { play } = usePlayer();
 
     return (
-        <div className={styles.episode}>
-            <div className={styles.thumbnail__container}>
+        <EpisodeWrapper id={episode.id}>
+            <div className="episode-thumbnail">
                 <Link href="/">
-                    <button type="button">
-                        <img src="/arrow-left.svg" alt="Voltar" />
+                    <button type="button" className="button--return">
+                        <img
+                            src="/arrow-left.svg"
+                            alt="Voltar"
+                        />
                     </button>
                 </Link>
 
                 <Image
+                    className="episode-thumbnail-image"
                     width={700}
                     height={160}
                     src={episode.thumbnail}
-                    objectFit="cover"
+                    alt={episode.title}
                 />
 
-                <button type="button">
-                    <img src="/play.svg" alt="Tocar episódio" />
+                <button
+                    type="button"
+                    className="button--play"
+                    onClick={() => play(episode)}
+                >
+                    <img
+                        src="/play.svg"
+                        alt="Tocar episódio"
+                    />
                 </button>
             </div>
 
-            <header>
+            <header className="episode-header">
                 <h1> {episode.title} </h1>
                 <span> {episode.members} </span>
                 <span> {episode.published_at} </span>
                 <span> {episode.durationAsString} </span>
             </header>
 
-            {/* 
-                Para exibir dados sem as tags html,
-                Não é recomendado se você não souber de onde os dados vem
-             */}
-            <div
-                className={styles.description}
+            <div className="episode-description"
                 dangerouslySetInnerHTML={{ __html: episode.description }}
+            // Para exibir dados sem as tags html. Não é recomendado se você não souber de onde os dados vem...
             />
-        </div>
+        </EpisodeWrapper>
     )
 }
 
@@ -91,7 +81,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     })
 
     return {
-        // paths: [],
         paths,
         fallback: 'blocking'
     }
@@ -102,25 +91,22 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     const { slug } = ctx.params;
     const { data } = await api.get(`/episodes/${slug}`);
 
-    // Formatando os dados do episódio.
     const episode = {
         id: data.id,
         title: data.title,
         thumbnail: data.thumbnail,
         members: data.members,
         published_at: format(parseISO(data.published_at), 'd MMM yy', { locale: ptBR }), // parseISO transforma string em data do javascript.
-        description: data.description,
         duration: Number(data.file.duration),
         durationAsString: convertDurationToTimeString(Number(data.file.duration)),
+        description: data.description,
         url: data.file.url,
     };
 
     return {
-        // retorno o episódio.
         props: {
             episode,
         },
-        // Atualiza a página a cada 24 horas.
-        revalidate: 60 * 60 * 24,
+        revalidate: 60 * 60 * 24, // 24 horas
     }
 }

@@ -5,9 +5,10 @@ export function convertDurationToTimeString(duration: number) {
     const minutes = Math.floor((duration % 3600) / 60); // Resto da divisão de duration por 3600 é dividido por 60.
     const seconds = duration % 60; // Resto da divisão de duration por 60.
 
+    // Percorre o array com map e pra cada uma das unidades, converte pra string e se o retorno for de apenas 1 caracteres, o padStart adiciona o zero.
     const timeString = [ hours, minutes, seconds ]
-        .map(unit => String(unit).padStart(2, '0')) // Percorre o array com map e pra cada uma das unidades, converte pra string e se o retorno for de apenas 1 caracteres, o padStart adiciona o zero.
-        .join(':') // Usando os pontos para unir.
+        .map(unit => String(unit).padStart(2, '0'))
+        .join(':')
 
     return timeString;
 }

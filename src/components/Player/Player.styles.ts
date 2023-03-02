@@ -1,8 +1,11 @@
-.player__wrapper {
+import styled from "styled-components";
+
+export const PlayerRootWrapper = styled.aside`
     width: 26.5rem;
     height: 100vh;
     padding: 3rem 4rem;
-    background-color: var(--purple__500);
+    background-color: var(--primary500);
+    overflow: hidden;
     color: var(--white);
 
     display: flex;
@@ -15,23 +18,31 @@
         font-weight: 600;
     }
 
-    .player__header {
+    .player-header {
         display: flex;
         align-items: center;
         gap: 1rem;
     }
 
-    .current__episode {
+    .current-episode {
+        width: 100%;
+        height: 20rem;
         text-align: center;
 
         img {
+            width: inherit;
+            height: inherit;
             border-radius: 1.5rem;
+            object-fit: cover;
         }
 
         strong {
             display: block;
             margin-top: 2rem;
-            font: 600 1.25rem Lexend, sans-serif;
+
+            font-family: Lexend, sans-serif;
+            font-weight: 600;
+            font-size: 1.25rem;
             line-height: 1.75rem;
         }
 
@@ -43,11 +54,11 @@
         }
     }
 
-    .player__empty {
+    .player-empty {
         width: 100%;
         height: 20rem;
         padding: 4rem;
-        border: 0.094rem dashed var(--purple__300);
+        border: 0.094rem dashed var(--primary300);
         border-radius: 1.5rem;
         background: linear-gradient(143.8deg, rgba(145, 100, 250, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
         text-align: center;
@@ -60,38 +71,38 @@
     footer {
         align-self: stretch;
 
-        &.player__footer__empty {
+        &.player-footer-empty {
             opacity: 0.5;
         }
     }
-}
+`;
 
-.player__progress {
+export const PlayerProgressWrapper = styled.aside`
     display: flex;
     align-items: center;
     gap: 0.5rem;
 
     font-size: 0.875rem;
 
-    .player__time {
+    .player-time {
         display: inline-block;
         width: 4rem;
         text-align: center;
     }
 
-    .player__slider {
+    .player-slider {
         flex: 1;
 
-        .player__slider__empty {
+        .player-slider-empty {
             width: 100%;
             height: 0.25rem;
-            background-color: var(--purple__300);
+            background-color: var(--primary300);
             border-radius: 0.125rem;
         }
     }
-}
+`;
 
-.player__controls {
+export const PlayerControlsWrapper = styled.aside`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -109,20 +120,27 @@
             cursor: not-allowed;
         }
 
-        // quando receber hover e não estiver com disabled.
         &:hover:not(:disabled) {
             filter: brightness(0.7);
         }
 
-        &.player__button {
+        &.is-active {
+           filter: invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+        }
+
+        &.is-active:hover {
+            filter: brightness(0.6) invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+        }
+
+        &.player-button {
             width: 4rem;
             height: 4rem;
             border-radius: 1rem;
-            background-color: var(--purple__400);
+            background-color: var(--primary400);
 
             &:hover:not(:disabled) {
                 filter: brightness(0.95);
             }
         }
     }
-}
+`;

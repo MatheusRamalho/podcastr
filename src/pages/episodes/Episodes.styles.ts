@@ -1,13 +1,19 @@
-.episode {
-    max-width: 45rem;
+import styled from "styled-components";
+
+export const EpisodeWrapper = styled.div`
+    max-width: 50rem;
     margin: 0 auto;
     padding: 3rem 2rem;
 
-    .thumbnail__container {
+    .episode-thumbnail {
         position: relative;
+        max-width: 45rem;
+        border-radius: 1rem;
 
-        img {
+        .episode-thumbnail-image {
+            width: 100%;
             border-radius: 1rem;
+            object-fit: cover;
         }
 
         button {
@@ -19,21 +25,20 @@
             border: 0;
             border-radius: 0.75rem;
             font-size: 0;
-
             transition: filter 0.2s;
 
-            &:first-child {
+            &.button--return {
                 top: 50%;
                 left: 0;
                 transform: translate(-50%, -50%);
-                background-color: var(--purple__500);
+                background-color: var(--primary500);
             }
 
-            &:last-child {
+            &.button--play {
                 top: 50%;
                 right: 0;
                 transform: translate(50%, -50%);
-                background-color: var(--green__500);
+                background-color: var(--secondary50);
             }
 
             &:hover {
@@ -42,9 +47,9 @@
         }
     }
 
-    header {
+    .episode-header {
         padding-bottom: 1rem;
-        border-bottom: 0.063rem solid var(--gray__100);
+        border-bottom: 0.063rem solid var(--gray100);
 
         h1 {
             margin-top: 2rem;
@@ -55,8 +60,7 @@
             display: inline-block;
             font-size: 0.875rem;
 
-            &+span {
-                // Pega todo span que antes dele tem um span.
+            &+span { // Pega todo span que antes dele tem um span.
                 position: relative;
 
                 margin-left: 1rem;
@@ -79,14 +83,14 @@
         }
     }
 
-    .description {
+    .episode-description {
         margin-top: 2rem;
 
         line-height: 1.675rem;
-        color: var(--gray__800);
+        color: var(--gray800);
 
         p {
             margin: 1.5rem 0;
         }
     }
-}
+`;
