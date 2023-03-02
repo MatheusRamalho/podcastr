@@ -1,30 +1,40 @@
-<p align="center">
-  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=8257E5&labelColor=000000">
+<h1 align="center"> Podcastr </h1>
 
- <img src="https://img.shields.io/static/v1?label=NLW&message=05&color=8257E5&labelColor=000000" alt="NLW 05" />
+<p align="center">
+  O podcastr é um app para reprodução de episódios em áudio do seu podcast favorito.
+</p>
+
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>
+</p>
+
+<p align="center">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
 </p>
 
 <br>
 
 <p align="center">
-  <img alt="Podcastr" src=".github/preview.png" width="100%">
+  <img alt="Preview do projeto" src=".github/preview.png" width="100%">
 </p>
 
-## ✨ Tecnologias
+## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- [React](https://reactjs.org)
-- [Next.js](https://nextjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
+- Next
+- React
+- TypeScript
+- Styled-components
+- Git
+- Github
 
 ## 💻 Projeto
 
 O podcastr é um app para reprodução de episódios em áudio do seu podcast favorito.
-
-## 🔖 Layout
-
-Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/UwFEntsHpHYJlHNQAQr4gA/Podcastr/duplicate). É necessário ter conta no [Figma](http://figma.com/) para acessá-lo.
 
 ## 🚀 Como executar
 
@@ -35,10 +45,16 @@ Você pode visualizar o layout do projeto através [desse link](https://www.figm
 
 Agora você pode acessar [`localhost:3000`](http://localhost:3000) do seu navegador.
 
-## 📄 Licença
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+## 🔖 Layout
+
+Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/file/UwFEntsHpHYJlHNQAQr4gA/Podcastr/duplicate).
+
+## :memo: Licença
+
+Esse projeto está sob a licença MIT.
 
 ---
 
-Feito com ♥ by Rocketseat 👋🏻 [Participe da nossa comunidade!](https://discordapp.com/invite/gCRAFhc)
+Projeto proposto pela Rocketseat como desafio <br/>
+by Matheus Ramalho - [matheusramalho.dev](matheusramalho.dev)
