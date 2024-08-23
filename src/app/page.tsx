@@ -22,11 +22,7 @@ import {
 export default function Home() {
     const { playList } = usePlayer()
 
-    const {
-        data: episodes,
-        isLoading,
-        isError,
-    } = useQuery<EpisodeType[]>({
+    const { data: episodes, isLoading } = useQuery<EpisodeType[]>({
         queryKey: ['episodes'],
         queryFn: getEpisodes,
         staleTime: 60 * 60 * 8, // 24 horas
@@ -34,10 +30,6 @@ export default function Home() {
 
     if (isLoading) {
         return <Loading />
-    }
-
-    if (isError) {
-        return <div>Erro ao carregar episódios</div>
     }
 
     const latestEpisodes = episodes?.slice(0, 2) || []
@@ -55,20 +47,26 @@ export default function Home() {
                 </h2>
 
                 <ul className="list-none flex flex-row items-center flex-wrap gap-8">
-                    {latestEpisodes.map((episode, index) => {
-                        return (
-                            <FeatureEpsiode
-                                key={episode.id}
-                                id={episode.id}
-                                title={episode.title}
-                                members={episode.members}
-                                thumbnail={episode.thumbnail}
-                                durationAsString={episode.durationAsString}
-                                published_at={episode.published_at}
-                                onClick={() => playList(episodeList, index)}
-                            />
-                        )
-                    })}
+                    {latestEpisodes && latestEpisodes.length > 0 ? (
+                        latestEpisodes.map((episode, index) => {
+                            return (
+                                <FeatureEpsiode
+                                    key={episode.id}
+                                    id={episode.id}
+                                    title={episode.title}
+                                    members={episode.members}
+                                    thumbnail={episode.thumbnail}
+                                    durationAsString={episode.durationAsString}
+                                    published_at={episode.published_at}
+                                    onClick={() => playList(episodeList, index)}
+                                />
+                            )
+                        })
+                    ) : (
+                        <p className="py-6 text-center text-zinc-600">
+                            Nenhum resultado encontrado.
+                        </p>
+                    )}
                 </ul>
             </section>
 
@@ -98,54 +96,68 @@ export default function Home() {
                     </TableHeader>
 
                     <TableBody>
-                        {allEpisodes.map((episode, index) => {
-                            return (
-                                <TableRow key={episode.id}>
-                                    <TableCell>
-                                        <div className="size-10 rounded-full bg-red-500">
-                                            <Image
-                                                className="size-10 rounded-full object-cover"
-                                                width={40}
-                                                height={40}
-                                                src={episode.thumbnail}
-                                                alt={episode.title}
+                        {allEpisodes && allEpisodes.length > 0 ? (
+                            allEpisodes.map((episode, index) => {
+                                return (
+                                    <TableRow key={episode.id}>
+                                        <TableCell>
+                                            <div className="size-10 rounded-full bg-red-500">
+                                                <Image
+                                                    className="size-10 rounded-full object-cover"
+                                                    width={40}
+                                                    height={40}
+                                                    src={episode.thumbnail}
+                                                    alt={episode.title}
+                                                />
+                                            </div>
+                                        </TableCell>
+
+                                        <TableCell>
+                                            <Link
+                                                className="font-semibold leading-6 hover:underline"
+                                                href={`/episodes/${episode.id}`}
+                                            >
+                                                {episode.title}
+                                            </Link>
+                                        </TableCell>
+
+                                        <TableCell>
+                                            {' '}
+                                            {episode.members}{' '}
+                                        </TableCell>
+
+                                        <TableCell>
+                                            {episode.published_at}
+                                        </TableCell>
+
+                                        <TableCell>
+                                            {episode.durationAsString}
+                                        </TableCell>
+
+                                        <TableCell>
+                                            <PlayButton
+                                                onClick={() =>
+                                                    playList(
+                                                        episodeList,
+                                                        index +
+                                                            latestEpisodes.length,
+                                                    )
+                                                }
                                             />
-                                        </div>
-                                    </TableCell>
-
-                                    <TableCell>
-                                        <Link
-                                            className="font-semibold leading-6 hover:underline"
-                                            href={`/episodes/${episode.id}`}
-                                        >
-                                            {episode.title}
-                                        </Link>
-                                    </TableCell>
-
-                                    <TableCell> {episode.members} </TableCell>
-
-                                    <TableCell>
-                                        {episode.published_at}
-                                    </TableCell>
-
-                                    <TableCell>
-                                        {episode.durationAsString}
-                                    </TableCell>
-
-                                    <TableCell>
-                                        <PlayButton
-                                            onClick={() =>
-                                                playList(
-                                                    episodeList,
-                                                    index +
-                                                        latestEpisodes.length,
-                                                )
-                                            }
-                                        />
-                                    </TableCell>
-                                </TableRow>
-                            )
-                        })}
+                                        </TableCell>
+                                    </TableRow>
+                                )
+                            })
+                        ) : (
+                            <TableRow>
+                                <TableCell
+                                    colSpan={6}
+                                    className="py-6 text-center text-zinc-600"
+                                >
+                                    Nenhum resultado encontrado.
+                                </TableCell>
+                            </TableRow>
+                        )}
                     </TableBody>
                 </TableRoot>
             </section>

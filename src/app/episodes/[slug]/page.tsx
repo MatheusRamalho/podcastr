@@ -31,7 +31,11 @@ export default function Episode() {
     }
 
     if (error || !episode) {
-        return <div>Erro ao carregar o episódio.</div>
+        return (
+            <div className="p-6 text-center text-zinc-600">
+                Erro ao carregar o episódio.
+            </div>
+        )
     }
 
     return (
