@@ -34,7 +34,9 @@ export default function RootLayout({
                             <main className="flex-1">
                                 <Header />
 
-                                {children}
+                                <div className="h-[calc(100vh-6.5rem-6rem)] lg:h-[calc(100vh-6.5rem)] overflow-y-scroll px-4 lg:px-16 pb-16">
+                                    {children}
+                                </div>
                             </main>
 
                             <PlayerElement />

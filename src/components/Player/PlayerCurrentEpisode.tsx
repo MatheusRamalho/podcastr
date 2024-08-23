@@ -12,14 +12,16 @@ export function PlayerCurrentEpisode({
     members,
 }: PlayerCurrentEpisodeProps) {
     return (
-        <div className="size-16 lg:w-full lg:h-80 text-center flex flex-col items-center justify-center gap-2">
-            <Image
-                className="size-16 lg:size-72 rounded-md lg:rounded-3xl object-cover"
-                width={320}
-                height={320}
-                src={thumbnail}
-                alt={title}
-            />
+        <div className="size-16 lg:w-full lg:h-96 text-center flex flex-col items-center justify-center gap-2">
+            <div className="w-16 h-16 lg:w-72 lg:h-96">
+                <Image
+                    className="size-full rounded-md lg:rounded-3xl object-cover"
+                    width={320}
+                    height={384}
+                    src={thumbnail}
+                    alt={title}
+                />
+            </div>
 
             <strong className="hidden lg:block font-semibold text-base leading-7">
                 {title}

@@ -21,10 +21,8 @@ export function Header() {
                 />
             </div>
 
-            <div className="w-full border-l border-l-zinc-200 dark:border-l-zinc-700 flex items-center justify-between">
-                <p className="hidden sm:block text-sm pl-8">
-                    O melhor para você ouvir, sempre
-                </p>
+            <div className="hidden sm:flex w-full border-l border-l-zinc-200 dark:border-l-zinc-700 items-center justify-between">
+                <p className="text-sm pl-8">O melhor para você ouvir, sempre</p>
 
                 <span className="text-sm ml-auto capitalize">
                     {currentDate}

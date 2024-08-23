@@ -46,7 +46,7 @@ export default function Home() {
     const episodeList = [...latestEpisodes, ...allEpisodes]
 
     return (
-        <div className="h-[calc(100vh-6.5rem-6rem)] lg:h-[calc(100vh-6.5rem)] overflow-y-scroll px-4 lg:px-16 pb-16">
+        <>
             <section id="last-releases" className="">
                 <h6 hidden> Últimos lançamentos </h6>
 
@@ -82,12 +82,18 @@ export default function Home() {
                 <TableRoot>
                     <TableHeader>
                         <TableRow>
-                            <TableHead className="w-20"></TableHead>
+                            <TableHead className="min-w-20 sm:w-20"></TableHead>
                             <TableHead className=""> Podcast </TableHead>
-                            <TableHead className="w-96">Integrantes</TableHead>
-                            <TableHead className="w-20"> Data </TableHead>
-                            <TableHead className="w-20"> Duração </TableHead>
-                            <TableHead className="w-20"></TableHead>
+                            <TableHead className="min-w-32 sm:w-96">
+                                Integrantes
+                            </TableHead>
+                            <TableHead className="min-w-28 sm:w-20">
+                                Data
+                            </TableHead>
+                            <TableHead className="min-w-24 sm:w-20">
+                                Duração
+                            </TableHead>
+                            <TableHead className="min-w-20 sm:w-20"></TableHead>
                         </TableRow>
                     </TableHeader>
 
@@ -96,14 +102,17 @@ export default function Home() {
                             return (
                                 <TableRow key={episode.id}>
                                     <TableCell>
-                                        <Image
-                                            className="size-10 rounded-full object-cover"
-                                            width={40}
-                                            height={40}
-                                            src={episode.thumbnail}
-                                            alt={episode.title}
-                                        />
+                                        <div className="size-10 rounded-full bg-red-500">
+                                            <Image
+                                                className="size-10 rounded-full object-cover"
+                                                width={40}
+                                                height={40}
+                                                src={episode.thumbnail}
+                                                alt={episode.title}
+                                            />
+                                        </div>
                                     </TableCell>
+
                                     <TableCell>
                                         <Link
                                             className="font-semibold leading-6 hover:underline"
@@ -112,15 +121,17 @@ export default function Home() {
                                             {episode.title}
                                         </Link>
                                     </TableCell>
+
                                     <TableCell> {episode.members} </TableCell>
+
                                     <TableCell>
-                                        {' '}
-                                        {episode.published_at}{' '}
+                                        {episode.published_at}
                                     </TableCell>
+
                                     <TableCell>
-                                        {' '}
-                                        {episode.durationAsString}{' '}
+                                        {episode.durationAsString}
                                     </TableCell>
+
                                     <TableCell>
                                         <PlayButton
                                             onClick={() =>
@@ -138,6 +149,6 @@ export default function Home() {
                     </TableBody>
                 </TableRoot>
             </section>
-        </div>
+        </>
     )
 }
