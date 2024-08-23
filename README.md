@@ -2,7 +2,7 @@
 
 <br />
 
-![thumbnail](.github/thumbnail.jpg?style=flat)
+![thumbnail](.github/thumbnail.png?style=flat)
 
 <br />
 
