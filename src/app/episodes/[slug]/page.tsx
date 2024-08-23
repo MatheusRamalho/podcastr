@@ -35,7 +35,7 @@ export default function Episode() {
     }
 
     return (
-        <div className="h-[calc(100vh-6.5rem)] overflow-y-scroll py-16">
+        <div className="h-[calc(100vh-6.5rem-6rem)] lg:h-[calc(100vh-6.5rem)] overflow-y-scroll py-16">
             <section
                 className="max-w-[50rem] my-0 mx-auto py-12 px-8"
                 id={episode.id}
@@ -53,7 +53,7 @@ export default function Episode() {
 
                     <div className="w-full h-80 rounded-2xl overflow-hidden">
                         <Image
-                            className="w-full rounded-2xl object-cover"
+                            className="size-full rounded-2xl object-cover"
                             width={700}
                             height={320}
                             src={episode.thumbnail}
@@ -75,7 +75,7 @@ export default function Episode() {
                 </div>
 
                 <header className="pb-4 border-b border-b-zinc-200 dark:border-b-zinc-700">
-                    <h1 className="mt-8 mb-6 text-zinc-800 dark:text-zinc-100 text-4xl">
+                    <h1 className="mt-8 mb-6 text-zinc-800 dark:text-zinc-100 text-2xl lg:text-4xl">
                         {episode.title}
                     </h1>
 

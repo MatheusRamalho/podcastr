@@ -10,6 +10,14 @@ import { EpisodeType } from '@/types/Episode'
 import { PlayButton } from '@/components/PlayButton'
 import { FeatureEpsiode } from '@/components/FeatureEpisode'
 import { Loading } from '@/components/Loading'
+import {
+    TableRow,
+    TableCell,
+    TableBody,
+    TableHead,
+    TableHeader,
+    TableRoot,
+} from '@/components/Table'
 
 export default function Home() {
     const { playList } = usePlayer()
@@ -38,7 +46,7 @@ export default function Home() {
     const episodeList = [...latestEpisodes, ...allEpisodes]
 
     return (
-        <div className="h-[calc(100vh-6.5rem)] overflow-y-scroll px-16">
+        <div className="h-[calc(100vh-6.5rem-6rem)] lg:h-[calc(100vh-6.5rem)] overflow-y-scroll px-4 lg:px-16 pb-16">
             <section id="last-releases" className="">
                 <h6 hidden> Últimos lançamentos </h6>
 
@@ -71,76 +79,49 @@ export default function Home() {
                     Todos episódios
                 </h2>
 
-                <table className="w-full" cellSpacing={0}>
-                    <thead>
-                        <tr className="border-b border-b-zinc-200 dark:border-b-zinc-700">
-                            <th className="py-3 px-4 font-medium text-sm text-zinc-600 dark:text-zinc-300 text-left"></th>
+                <TableRoot>
+                    <TableHeader>
+                        <TableRow>
+                            <TableHead className="w-20"></TableHead>
+                            <TableHead className=""> Podcast </TableHead>
+                            <TableHead className="w-96">Integrantes</TableHead>
+                            <TableHead className="w-20"> Data </TableHead>
+                            <TableHead className="w-20"> Duração </TableHead>
+                            <TableHead className="w-20"></TableHead>
+                        </TableRow>
+                    </TableHeader>
 
-                            <th className="py-3 px-4 font-medium text-sm text-zinc-600 dark:text-zinc-300 text-left">
-                                Podcast
-                            </th>
-
-                            <th className="py-3 px-4 font-medium text-sm text-zinc-600 dark:text-zinc-300 text-left">
-                                Integrantes
-                            </th>
-
-                            <th className="py-3 px-4 font-medium text-sm text-zinc-600 dark:text-zinc-300 text-left">
-                                Data
-                            </th>
-
-                            <th className="py-3 px-4 font-medium text-sm text-zinc-600 dark:text-zinc-300 text-left">
-                                Duração
-                            </th>
-
-                            <th className="py-3 px-4 font-medium text-sm text-zinc-600 dark:text-zinc-300 text-left"></th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
+                    <TableBody>
                         {allEpisodes.map((episode, index) => {
                             return (
-                                <tr
-                                    key={episode.id}
-                                    className="border-b border-b-zinc-200 dark:border-b-zinc-700"
-                                >
-                                    <td
-                                        className="py-3 px-4 text-sm"
-                                        style={{ width: 72 }}
-                                    >
+                                <TableRow key={episode.id}>
+                                    <TableCell>
                                         <Image
-                                            className="size-10 rounded-full"
-                                            width={120}
-                                            height={120}
+                                            className="size-10 rounded-full object-cover"
+                                            width={40}
+                                            height={40}
                                             src={episode.thumbnail}
                                             alt={episode.title}
                                         />
-                                    </td>
-
-                                    <td className="py-3 px-4 text-sm text-zinc-600 dark:text-zinc-400">
+                                    </TableCell>
+                                    <TableCell>
                                         <Link
                                             className="font-semibold leading-6 hover:underline"
                                             href={`/episodes/${episode.id}`}
                                         >
                                             {episode.title}
                                         </Link>
-                                    </td>
-
-                                    <td className="py-3 px-4 text-sm text-zinc-600 dark:text-zinc-400">
-                                        {episode.members}
-                                    </td>
-
-                                    <td
-                                        className="py-3 px-4 text-sm text-zinc-600 dark:text-zinc-400"
-                                        style={{ width: 100 }}
-                                    >
-                                        {episode.published_at}
-                                    </td>
-
-                                    <td className="py-3 px-4 text-sm text-zinc-600 dark:text-zinc-400">
-                                        {episode.durationAsString}
-                                    </td>
-
-                                    <td className="py-3 px-4 text-sm text-zinc-600 dark:text-zinc-400">
+                                    </TableCell>
+                                    <TableCell> {episode.members} </TableCell>
+                                    <TableCell>
+                                        {' '}
+                                        {episode.published_at}{' '}
+                                    </TableCell>
+                                    <TableCell>
+                                        {' '}
+                                        {episode.durationAsString}{' '}
+                                    </TableCell>
+                                    <TableCell>
                                         <PlayButton
                                             onClick={() =>
                                                 playList(
@@ -150,12 +131,12 @@ export default function Home() {
                                                 )
                                             }
                                         />
-                                    </td>
-                                </tr>
+                                    </TableCell>
+                                </TableRow>
                             )
                         })}
-                    </tbody>
-                </table>
+                    </TableBody>
+                </TableRoot>
             </section>
         </div>
     )

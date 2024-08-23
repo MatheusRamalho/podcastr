@@ -25,7 +25,7 @@ export function FeatureEpsiode({
     onClick,
 }: FeatureEpsiodeProps) {
     return (
-        <li className="relative p-5 border border-zinc-200 dark:border-zinc-800 rounded-2xl bg-zinc-100 dark:bg-zinc-900 flex items-center">
+        <li className="relative w-full lg:flex-1 p-5 border border-zinc-200 dark:border-zinc-800 rounded-2xl bg-zinc-100 dark:bg-zinc-900 flex items-center gap-4 flex-col lg:flex-row">
             <div className="size-24 rounded-2xl bg-zinc-200 dark:bg-zinc-800 overflow-hidden">
                 <Image
                     className="size-24 rounded-2xl object-cover"
@@ -36,7 +36,7 @@ export function FeatureEpsiode({
                 />
             </div>
 
-            <div className="flex-1 ml-4">
+            <div className="flex-1 ml-4 text-center">
                 <Link
                     className="block font-semibold decoration-0 leading-6 text-zinc-700 dark:text-zinc-300 hover:underline"
                     href={`/episodes/${id}`}
@@ -44,7 +44,7 @@ export function FeatureEpsiode({
                     {title}
                 </Link>
 
-                <p className="text-sm mt-2 truncate max-w-[70%] text-zinc-400 dark:text-zinc-600">
+                <p className="text-sm mt-2 lg:truncate lg:max-w-[70%] text-zinc-400 dark:text-zinc-600">
                     {members}
                 </p>
 
@@ -59,7 +59,7 @@ export function FeatureEpsiode({
 
             <PlayButton
                 onClick={onClick}
-                className="absolute bottom-8 right-8"
+                className="absolute top-8 left-8 lg:left-auto lg:top-auto lg:bottom-8 lg:right-8"
             />
         </li>
     )

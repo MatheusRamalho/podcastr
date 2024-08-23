@@ -16,7 +16,7 @@ export function PlayerProgress({
     handleSeek,
 }: PlayerProgressProps) {
     return (
-        <div className="flex items-center gap-2 text-sm">
+        <div className="w-full max-w-96 flex items-center gap-2 text-sm">
             <span className="inline-block w-16 text-center">
                 {convertDurationToTimeString(Number(progress))}
             </span>

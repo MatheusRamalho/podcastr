@@ -30,7 +30,7 @@ export default function RootLayout({
             >
                 <ReactQueryClientProviders>
                     <PlayerContextProvider>
-                        <div className="flex overflow-hidden">
+                        <div className="flex overflow-hidden flex-col lg:flex-row">
                             <main className="flex-1">
                                 <Header />
 

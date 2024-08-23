@@ -12,7 +12,10 @@ export function PlayerFooter({
 }: PlayerFooterProps) {
     return (
         <footer
-            className={twMerge('self-stretch', isNotEpisode && 'opacity-50')}
+            className={twMerge(
+                'w-full flex items-center justify-center flex-col lg:w-auto lg:self-stretch',
+                isNotEpisode && 'opacity-50',
+            )}
         >
             {children}
         </footer>

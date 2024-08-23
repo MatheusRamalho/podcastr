@@ -40,13 +40,13 @@ export function PlayerControls({
     toggleLoop,
 }: PlayerControlsProps) {
     return (
-        <div className="flex items-center justify-center gap-4 mt-10">
+        <div className="max-w-96 flex items-center justify-center gap-4 mt-2 lg:mt-10">
             <button
                 type="button"
                 disabled={!episode || episodeList.length === 1}
                 onClick={toggleShuffle}
                 className={twMerge(
-                    'relative cursor-pointer size-10 flex items-center justify-center rounded-lg bg-transparent border-none text-[0] transition-all disabled:cursor-not-allowed hover:bg-primary-400',
+                    'relative cursor-pointer size-8 lg:size-10 flex items-center justify-center rounded-lg bg-transparent border-none text-[0] transition-all disabled:cursor-not-allowed hover:bg-primary-400',
                     isShuffling &&
                         'before:content-[""] before:absolute before:bottom-0 before:left-1/2 before:size-1 before:rounded-sm before:bg-secondary-500 before:-translate-x-1/2 before:-translate-y-1/2',
                 )}
@@ -56,7 +56,7 @@ export function PlayerControls({
 
             <button
                 className={twMerge(
-                    'cursor-pointer size-10 flex items-center justify-center rounded-lg bg-transparent border-none text-[0] transition-all disabled:cursor-not-allowed hover:bg-primary-400',
+                    'cursor-pointer size-8 lg:size-10 flex items-center justify-center rounded-lg bg-transparent border-none text-[0] transition-all disabled:cursor-not-allowed hover:bg-primary-400',
                 )}
                 type="button"
                 onClick={playPrevious}
@@ -73,7 +73,7 @@ export function PlayerControls({
                 type="button"
                 className={twMerge(
                     'cursor-pointer bg-transparent border-none text-[0] transition-all disabled:cursor-not-allowed hover:backdrop-brightness-75',
-                    'size-14 rounded-xl bg-primary-400 hover:bg-primary-300 flex items-center justify-center',
+                    'size-10 lg:size-14 rounded-xl bg-primary-400 hover:bg-primary-300 flex items-center justify-center',
                 )}
                 disabled={!episode}
                 onClick={togglePlay}
@@ -87,7 +87,7 @@ export function PlayerControls({
 
             <button
                 className={twMerge(
-                    'cursor-pointer size-10 flex items-center justify-center rounded-lg bg-transparent border-none text-[0] transition-all disabled:cursor-not-allowed hover:bg-primary-400',
+                    'cursor-pointer size-8 lg:size-10 flex items-center justify-center rounded-lg bg-transparent border-none text-[0] transition-all disabled:cursor-not-allowed hover:bg-primary-400',
                 )}
                 type="button"
                 disabled={!episode || !hasNext}
@@ -98,7 +98,7 @@ export function PlayerControls({
 
             <button
                 className={twMerge(
-                    'relative cursor-pointer size-10 flex items-center justify-center rounded-lg bg-transparent border-none text-[0] transition-all disabled:cursor-not-allowed hover:bg-primary-400',
+                    'relative cursor-pointer size-8 lg:size-10 flex items-center justify-center rounded-lg bg-transparent border-none text-[0] transition-all disabled:cursor-not-allowed hover:bg-primary-400',
                     isLooping &&
                         'before:content-[""] before:absolute before:bottom-0 before:left-1/2 before:size-1 before:rounded-sm before:bg-secondary-500 before:-translate-x-1/2 before:-translate-y-1/2',
                 )}
