@@ -1,60 +1,121 @@
-<h1 align="center"> Podcastr </h1>
+# PODCASTR
 
-<p align="center">
-  O podcastr é um app para reprodução de episódios em áudio do seu podcast favorito.
-</p>
+<br />
 
-<p align="center">
-  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-licença">Licença</a>
-</p>
+![thumbnail](.github/thumbnail.jpg?style=flat)
 
-<p align="center">
-  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
-</p>
+<br />
 
-<br>
 
-<p align="center">
-  <img alt="Preview do projeto" src=".github/preview.png" width="100%">
-</p>
+## 📌 Tópicos
 
-## 🚀 Tecnologias
+- [Descrição do projeto](#-projeto)
+- [Funcionalidades](#-stack)
+- [Funcionalidades](#-funcionalidades)
+- [Layout da Aplicação](#-layout)
+- [Deploy da Aplicação](#-deploy)
+- [Pré-requisitos](#-pré-requisitos)
+- [Como rodar a aplicação](#-rodando-a-aplicação)
+- [Licença](#-licença)
+- [Desenvolvedores e contribuintes](#-Desenvolvedores)
 
-Esse projeto foi desenvolvido com as seguintes tecnologias:
+<br />
 
-- Next
-- React
-- TypeScript
-- Styled-components
-- Git
-- Github
-
-## 💻 Projeto
+## 💡 Projeto
 
 O podcastr é um app para reprodução de episódios em áudio do seu podcast favorito.
 
-## 🚀 Como executar
+<br />
 
-- Clone o repositório
-- Instale as dependências com `npm install`
-- Inicie a fake api com `npm run server`
-- Inicie o servidor com `npm run dev`
+## ⭐ Stack
 
-Agora você pode acessar [`localhost:3000`](http://localhost:3000) do seu navegador.
+- React
+- Next
+- Typescript
+- Tailwind
+- Git
+- Github
+- Vercel
+- Json Server
 
+<br />
+
+## 🧰 Funcionalidades
+
+- Listagem de podicasts
+- Detalhes de um podcast
+- Player do podcast
+- Todos os controles do players
+
+<br />
 
 ## 🔖 Layout
 
-Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/file/UwFEntsHpHYJlHNQAQr4gA/Podcastr/duplicate).
+Você pode visualizar o layout do projeto através [desse link](). É necessário ter conta no [Figma](http://figma.com/) para acessá-lo.
 
-## :memo: Licença
+<br />
 
-Esse projeto está sob a licença MIT.
+## 🚀 Deploy
 
----
+Você pode visualizar o deploy do projeto na vercel através [desse link](https://ignite-pomodoro-mat.vercel.app).
 
-Projeto proposto pela Rocketseat como desafio <br/>
-by Matheus Ramalho - [matheusramalho.dev](matheusramalho.dev)
+<br />
+
+## 🛟 Pré-requisitos
+
+Antes de começar, verifique se atendeu aos seguintes requisitos:
+
+- [Node](https://nodejs.org)
+- [Npm](https://www.npmjs.com/)
+- [VsCode](https://code.visualstudio.com/)
+
+<br />
+
+## 🎯 Rodando a aplicação
+
+Clone o repositório
+
+```bash
+git clone https://github.com/MatheusRamalho/podcastr
+```
+
+Utilize o **npm** para instalar as dependências do projeto.
+
+```bash
+npm install
+```
+
+Em seguida, inicie o projeto.
+
+```bash
+npx run dev
+```
+
+Para rodar o servidor para o projeto
+
+```bash
+npx run server
+```
+
+<br />
+
+## 📝 Licença
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+<br />
+
+## 🧠 Desenvolvedores
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/MatheusRamalho">
+        <img src="https://avatars.githubusercontent.com/u/15633283?v=4" width="100px;" alt="Foto do Matheus Silva no GitHub"/><br>
+        <sub>
+          <b>Matheus Silva</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
